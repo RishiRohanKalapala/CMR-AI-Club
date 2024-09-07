@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Events page of CMR AI Club showcasing upcoming and past events related to artificial intelligence.">
+    <meta name="keywords" content="AI, Artificial Intelligence, Events, CMR AI Club, Machine Learning, Workshops, Conferences">
+    <title>CMR AI Club - Events</title>
+    <link rel="icon" href="android-chrome-192x192.png" type="image/x-icon">
+    <style>
+        /* Global Styles */
+        body {
+            font-family: 'Orbitron', sans-serif;
+            background-color: #0a0a0a;
+            color: #ffffff;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.3s;
+        }
+
+        /* Header */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 40px;
+            background-color: #1f1f1f;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+            position: relative;
+            z-index: 1000;
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: bold;
+            color: #fbfcfd;
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
+            transition: max-height 0.4s ease;
+            overflow: hidden;
+            max-height: 500px;
+            background-color: #1f1f1f;
+        }
+
+        nav a {
+            position: relative;
+            color: #ffffff;
+            padding: 15px 20px;
+            font-weight: bold;
+            border-top: 1px solid #333;
+            transition: color 0.3s, background-color 0.3s;
+            display: block;
+        }
+
+        /* Menu Hover Effect */
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background-color: #ffffff;
+            transform: scaleX(0);
+            transform-origin: bottom right;
+            transition: transform 0.3s ease;
+        }
+
+        nav a:hover::after {
+            transform: scaleX(1);
+            transform-origin: bottom left;
+        }
+
+        .menu-button {
+            display: none;
+            background-color: #e8eaed;
+            border: none;
+            cursor: pointer;
+            padding: 10px;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        .menu-button span {
+            display: block;
+            width: 25px;
+            height: 3px;
+            background-color: #1f1f1f;
+            margin: 5px 0;
+            transition: all 0.3s;
+        }
+
+        .menu-button.open span:nth-child(1) {
+            transform: rotate(45deg);
+            background-color: #00c6ff;
+        }
+
+        .menu-button.open span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .menu-button.open span:nth-child(3) {
+            transform: rotate(-45deg);
+            background-color: #00c6ff;
+        }
+
+        /* Main Content */
+        .container {
+            padding: 60px 20px;
+            max-width: 1200px;
+            margin: auto;
+            background-color: #141414;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .container:hover {
+            transform: scale(1.02);
+        }
+
+        .section {
+            margin: 40px 0;
+            text-align: center;
+        }
+
+        .section h2 {
+            font-size: 36px;
+            margin-bottom: 20px;
+            color: #00c8ff;
+        }
+
+        .section p {
+            font-size: 18px;
+            line-height: 1.8;
+            color: #b3b3b3;
+        }
+
+        .event {
+            background-color: #1f1f1f;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            margin: 20px 0;
+            padding: 20px;
+            text-align: left;
+        }
+
+        .event h3 {
+            font-size: 28px;
+            color: #00c8ff;
+            margin: 0 0 10px 0;
+        }
+
+        .event p {
+            font-size: 18px;
+            color: #b3b3b3;
+        }
+
+        .event a {
+            color: #00c8ff;
+            font-weight: bold;
+        }
+
+        .event a:hover {
+            color: #0072ff;
+        }
+
+        /* Footer */
+        .footer {
+            background-color: #1f1f1f;
+            color: #fafafa;
+            text-align: center;
+            padding: 20px;
+            box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.3);
+        }
+
+        .footer p {
+            margin: 10px 0;
+        }
+
+        .footer a {
+            color: #00c8ff;
+            transition: color 0.3s;
+        }
+
+        .footer a:hover {
+            color: #0072ff;
+        }
+
+        /* Media Queries */
+        @media (max-width: 768px) {
+            .menu-button {
+                display: block;
+            }
+
+            nav {
+                max-height: 0;
+                overflow: hidden;
+                flex-direction: column;
+            }
+
+            nav.open {
+                max-height: 500px;
+            }
+
+            .container {
+                padding: 40px 10px;
+            }
+
+            .section h2 {
+                font-size: 28px;
+            }
+
+            .section p {
+                font-size: 16px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="logo">CMR AI Club</div>
+        <button class="menu-button" aria-label="Toggle Navigation">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+        <nav>
+            <a href="index.htm">Home</a>
+            <a href="index.htm">About Us</a>
+            <a href="events.htm">Events</a>
+            <a href="projects.htm">Projects</a>
+            <a href="resources.htm">Resources</a>
+            <a href="membership.htm">Membership</a>
+            <a href="gallery.htm">Gallery</a>
+            <a href="blog.htm">Blog</a>
+            <a href="contact.htm">Contact Us</a>
+        </nav>
+    </header>
+
+    <div class="container">
+        <section class="section" id="events">
+            <h2>Upcoming Events</h2>
+
+            <div class="event">
+                <h3>AI Innovations Conference 2024</h3>
+                <p><strong>Date:</strong> September 15, 2024</p>
+                <p><strong>Time:</strong> 10:00 AM - 5:00 PM</p>
+                <p><strong>Location:</strong> CMRIT Auditorium</p>
+                <p>Join us for a day of insightful talks and workshops featuring leading experts in AI. The conference will cover the latest trends, research, and applications in artificial intelligence. Don’t miss this opportunity to network with professionals and enthusiasts.</p>
+                <a href="#">Register Now</a> | <a href="#">Event Details</a>
+            </div>
+
+            <div class="event">
+                <h3>AI Hackathon 2024</h3>
+                <p><strong>Date:</strong> October 10-12, 2024</p>
+                <p><strong>Time:</strong> 9:00 AM - 6:00 PM</p>
+                <p><strong>Location:</strong> CMRIT Campus</p>
+                <p>Put your skills to the test in our AI Hackathon. Compete with teams to solve real-world problems using AI technologies. There will be exciting challenges, prizes, and mentorship from industry experts.</p>
+                <a href="#">Register Now</a> | <a href="#">Event Details</a>
+            </div>
+
+            <div class="event">
+                <h3>Workshop on Machine Learning Basics</h3>
+                <p><strong>Date:</strong> November 5, 2024</p>
+                <p><strong>Time:</strong> 2:00 PM - 4:00 PM</p>
+                <p><strong>Location:</strong> CMRIT Computer Lab</p>
+                <p>Learn the fundamentals of machine learning in this hands-on workshop. We’ll cover key concepts, algorithms, and tools used in the industry. Suitable for beginners and those looking to refresh their knowledge.</p>
+                <a href="#">Register Now</a> | <a href="#">Event Details</a>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>Past Events</h2>
+
+            <div class="event">
+                <h3>AI in Healthcare Seminar</h3>
+                <p><strong>Date:</strong> July 20, 2024</p>
+                <p><strong>Location:</strong> CMRIT Auditorium</p>
+                <p>Our seminar on AI in Healthcare explored how artificial intelligence is transforming the medical field. Industry experts shared their insights on AI applications in diagnostics, treatment, and patient care.</p>
+                <a href="#">View Photos</a> | <a href="#">Watch Highlights</a>
+            </div>
+
+            <div class="event">
+                <h3>AI Ethics and Policy Workshop</h3>
+                <p><strong>Date:</strong> June 15, 2024</p>
+                <p><strong>Location:</strong> CMRIT Conference Room</p>
+                <p>This workshop addressed the ethical and policy challenges associated with AI. Participants engaged in discussions about responsible AI development and the impact of AI on society.</p>
+                <a href="#">View Photos</a> | <a href="#">Watch Highlights</a>
+            </div>
+        </section>
+    </div>
+
+    <footer class="footer">
+        <p>&copy; 2024 CMR AI Club. All Rights Reserved.</p>
+        <p>Follow us on <a href="#">Social Media</a></p>
+    </footer>
+
+    <script>
+        document.querySelector('.menu-button').addEventListener('click', function () {
+            document.querySelector('nav').classList.toggle('open');
+            this.classList.toggle('open');
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Resources page of CMR AI Club providing tutorials, research papers, and AI tools for learning and research.">
+    <meta name="keywords" content="AI, Artificial Intelligence, Tutorials, Research Papers, AI Tools, CMR AI Club, Learning Resources">
+    <title>CMR AI Club - Resources</title>
+    <link rel="icon" href="android-chrome-192x192.png" type="image/x-icon">
+    <style>
+        /* Global Styles */
+        body {
+            font-family: 'Orbitron', sans-serif;
+            background-color: #0a0a0a;
+            color: #ffffff;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.3s;
+        }
+
+        /* Header */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 40px;
+            background-color: #1f1f1f;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+            position: relative;
+            z-index: 1000;
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: bold;
+            color: #fbfcfd;
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
+            transition: max-height 0.4s ease;
+            overflow: hidden;
+            max-height: 500px;
+            background-color: #1f1f1f;
+        }
+
+        nav a {
+            position: relative;
+            color: #ffffff;
+            padding: 15px 20px;
+            font-weight: bold;
+            border-top: 1px solid #333;
+            transition: color 0.3s, background-color 0.3s;
+            display: block;
+        }
+
+        /* Menu Hover Effect */
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background-color: #ffffff;
+            transform: scaleX(0);
+            transform-origin: bottom right;
+            transition: transform 0.3s ease;
+        }
+
+        nav a:hover::after {
+            transform: scaleX(1);
+            transform-origin: bottom left;
+        }
+
+        .menu-button {
+            display: none;
+            background-color: #e8eaed;
+            border: none;
+            cursor: pointer;
+            padding: 10px;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        .menu-button span {
+            display: block;
+            width: 25px;
+            height: 3px;
+            background-color: #1f1f1f;
+            margin: 5px 0;
+            transition: all 0.3s;
+        }
+
+        .menu-button.open span:nth-child(1) {
+            transform: rotate(45deg);
+            background-color: #00c6ff;
+        }
+
+        .menu-button.open span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .menu-button.open span:nth-child(3) {
+            transform: rotate(-45deg);
+            background-color: #00c6ff;
+        }
+
+        /* Main Content */
+        .container {
+            padding: 60px 20px;
+            max-width: 1200px;
+            margin: auto;
+            background-color: #141414;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .container:hover {
+            transform: scale(1.02);
+        }
+
+        .section {
+            margin: 40px 0;
+        }
+
+        .section h2 {
+            font-size: 36px;
+            margin-bottom: 20px;
+            text-align: center;
+            color: #00c8ff;
+        }
+
+        .resource-card {
+            background-color: #1f1f1f;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            margin: 20px 0;
+            padding: 20px;
+            transition: transform 0.3s ease;
+        }
+
+        .resource-card:hover {
+            transform: scale(1.02);
+        }
+
+        .resource-card h3 {
+            font-size: 28px;
+            color: #00c8ff;
+            margin: 0 0 10px 0;
+        }
+
+        .resource-card p {
+            font-size: 18px;
+            color: #b3b3b3;
+            line-height: 1.6;
+        }
+
+        .resource-card a {
+            color: #00c8ff;
+            font-weight: bold;
+            display: inline-block;
+            margin-top: 10px;
+        }
+
+        .resource-card a:hover {
+            color: #0072ff;
+        }
+
+        /* Footer */
+        .footer {
+            background-color: #1f1f1f;
+            color: #fafafa;
+            text-align: center;
+            padding: 20px;
+            box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.3);
+        }
+
+        .footer p {
+            margin: 10px 0;
+        }
+
+        .footer a {
+            color: #00c8ff;
+            transition: color 0.3s;
+        }
+
+        .footer a:hover {
+            color: #0072ff;
+        }
+
+        /* Media Queries */
+        @media (max-width: 768px) {
+            .menu-button {
+                display: block;
+            }
+
+            nav {
+                max-height: 0;
+                overflow: hidden;
+                flex-direction: column;
+            }
+
+            nav.open {
+                max-height: 500px;
+            }
+
+            .container {
+                padding: 40px 10px;
+            }
+
+            .section h2 {
+                font-size: 28px;
+            }
+
+            .resource-card h3 {
+                font-size: 24px;
+            }
+
+            .resource-card p {
+                font-size: 16px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="logo">CMR AI Club</div>
+        <button class="menu-button" aria-label="Toggle Navigation">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+        <nav>
+            <a href="index.htm">Home</a>
+            <a href="index.htm">About Us</a>
+            <a href="events.htm">Events</a>
+            <a href="projects.htm">Projects</a>
+            <a href="resources.htm">Resources</a>
+            <a href="membership.htm">Membership</a>
+            <a href="gallery.htm">Gallery</a>
+            <a href="blog.htm">Blog</a>
+            <a href="contact.htm">Contact Us</a>
+        </nav>
+    </header>
+
+    <div class="container">
+        <section class="section" id="resources">
+            <h2>Resources</h2>
+
+            <div class="resource-card">
+                <h3>AI Tutorials</h3>
+                <p>Explore a collection of tutorials on various AI topics, including machine learning, deep learning, and natural language processing. These tutorials are designed to help you understand and apply AI concepts effectively.</p>
+                <a href="#">View Tutorials</a>
+            </div>
+
+            <div class="resource-card">
+                <h3>Research Papers</h3>
+                <p>Access a curated list of research papers on cutting-edge AI topics. These papers cover recent advancements, methodologies, and case studies in the field of artificial intelligence.</p>
+                <a href="#">Read Papers</a>
+            </div>
+
+            <div class="resource-card">
+                <h3>AI Tools</h3>
+                <p>Discover a selection of AI tools and platforms that can assist in developing, training, and deploying AI models. These tools range from machine learning libraries to data visualization tools.</p>
+                <a href="#">Explore Tools</a>
+            </div>
+
+            <div class="resource-card">
+                <h3>Online Courses</h3>
+                <p>Find online courses that provide in-depth knowledge and hands-on experience in artificial intelligence. These courses cover various aspects of AI and are suitable for different skill levels.</p>
+                <a href="#">Enroll in Courses</a>
+            </div>
+        </section>
+    </div>
+
+    <footer class="footer">
+        <p>&copy; 2024 CMR AI Club. All Rights Reserved.</p>
+        <p>Follow us on <a href="#">Social Media</a></p>
+    </footer>
+
+    <script>
+        document.querySelector('.menu-button').addEventListener('click', function () {
+            document.querySelector('nav').classList.toggle('open');
+            this.classList.toggle('open');
+        });
+    </script>
+</body>
+
+</html>

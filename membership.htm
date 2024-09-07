@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Membership page of CMR AI Club providing details on how to join, membership benefits, and the application process.">
+    <meta name="keywords" content="AI, Artificial Intelligence, Membership, Join Us, CMR AI Club, Benefits, Application">
+    <title>CMR AI Club - Membership</title>
+    <link rel="icon" href="android-chrome-192x192.png" type="image/x-icon">
+    <style>
+        /* Global Styles */
+        body {
+            font-family: 'Orbitron', sans-serif;
+            background-color: #0a0a0a;
+            color: #ffffff;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.3s;
+        }
+
+        /* Header */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 40px;
+            background-color: #1f1f1f;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+            position: relative;
+            z-index: 1000;
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: bold;
+            color: #fbfcfd;
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
+            transition: max-height 0.4s ease;
+            overflow: hidden;
+            max-height: 500px;
+            background-color: #1f1f1f;
+        }
+
+        nav a {
+            position: relative;
+            color: #ffffff;
+            padding: 15px 20px;
+            font-weight: bold;
+            border-top: 1px solid #333;
+            transition: color 0.3s, background-color 0.3s;
+            display: block;
+        }
+
+        /* Menu Hover Effect */
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background-color: #ffffff;
+            transform: scaleX(0);
+            transform-origin: bottom right;
+            transition: transform 0.3s ease;
+        }
+
+        nav a:hover::after {
+            transform: scaleX(1);
+            transform-origin: bottom left;
+        }
+
+        .menu-button {
+            display: none;
+            background-color: #e8eaed;
+            border: none;
+            cursor: pointer;
+            padding: 10px;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        .menu-button span {
+            display: block;
+            width: 25px;
+            height: 3px;
+            background-color: #1f1f1f;
+            margin: 5px 0;
+            transition: all 0.3s;
+        }
+
+        .menu-button.open span:nth-child(1) {
+            transform: rotate(45deg);
+            background-color: #00c6ff;
+        }
+
+        .menu-button.open span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .menu-button.open span:nth-child(3) {
+            transform: rotate(-45deg);
+            background-color: #00c6ff;
+        }
+
+        /* Main Content */
+        .container {
+            padding: 60px 20px;
+            max-width: 1200px;
+            margin: auto;
+            background-color: #141414;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .container:hover {
+            transform: scale(1.02);
+        }
+
+        .section {
+            margin: 40px 0;
+        }
+
+        .section h2 {
+            font-size: 36px;
+            margin-bottom: 20px;
+            text-align: center;
+            color: #00c8ff;
+        }
+
+        .membership-info {
+            margin: 20px 0;
+        }
+
+        .membership-info h3 {
+            font-size: 28px;
+            color: #00c8ff;
+            margin: 0 0 10px 0;
+        }
+
+        .membership-info p {
+            font-size: 18px;
+            color: #b3b3b3;
+            line-height: 1.6;
+        }
+
+        .membership-info ul {
+            list-style: disc;
+            margin-left: 20px;
+            color: #b3b3b3;
+        }
+
+        .membership-info ul li {
+            margin-bottom: 10px;
+        }
+
+        .application-form {
+            margin: 40px 0;
+        }
+
+        .application-form h3 {
+            font-size: 28px;
+            color: #00c8ff;
+            margin: 0 0 20px 0;
+        }
+
+        .application-form p {
+            font-size: 18px;
+            color: #b3b3b3;
+            margin-bottom: 20px;
+        }
+
+        .application-form a {
+            display: inline-block;
+            padding: 15px;
+            border: none;
+            border-radius: 5px;
+            background-color: #00c8ff;
+            color: #ffffff;
+            font-size: 18px;
+            text-align: center;
+            text-decoration: none;
+            transition: background-color 0.3s;
+        }
+
+        .application-form a:hover {
+            background-color: #0072ff;
+        }
+
+        /* Embedded Form */
+        .embedded-form {
+            margin: 20px 0;
+            padding: 20px;
+            background-color: #1f1f1f;
+            border-radius: 10px;
+        }
+
+        iframe {
+            width: 100%;
+            height: 700px;
+            border: none;
+        }
+
+        /* Footer */
+        .footer {
+            background-color: #1f1f1f;
+            color: #fafafa;
+            text-align: center;
+            padding: 20px;
+            box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.3);
+        }
+
+        .footer p {
+            margin: 10px 0;
+        }
+
+        .footer a {
+            color: #00c8ff;
+            transition: color 0.3s;
+        }
+
+        .footer a:hover {
+            color: #0072ff;
+        }
+
+        /* Media Queries */
+        @media (max-width: 768px) {
+            .menu-button {
+                display: block;
+            }
+
+            nav {
+                max-height: 0;
+                overflow: hidden;
+                flex-direction: column;
+            }
+
+            nav.open {
+                max-height: 500px;
+            }
+
+            .container {
+                padding: 40px 10px;
+            }
+
+            .section h2 {
+                font-size: 28px;
+            }
+
+            .membership-info h3 {
+                font-size: 24px;
+            }
+
+            .membership-info p {
+                font-size: 16px;
+            }
+
+            .application-form label,
+            .application-form input,
+            .application-form textarea,
+            .application-form button {
+                font-size: 16px;
+            }
+
+            iframe {
+                height: 600px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="logo">CMR AI Club</div>
+        <button class="menu-button" aria-label="Toggle Navigation">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+        <nav>
+            <a href="index.htm">Home</a>
+            <a href="index.htm">About Us</a>
+            <a href="events.htm">Events</a>
+            <a href="projects.htm">Projects</a>
+            <a href="resources.htm">Resources</a>
+            <a href="membership.htm">Membership</a>
+            <a href="gallery.htm">Gallery</a>
+            <a href="blog.htm">Blog</a>
+            <a href="contact.htm">Contact Us</a>
+        </nav>
+    </header>
+
+    <div class="container">
+        <section class="section" id="membership">
+            <h2>Membership</h2>
+
+            <div class="membership-info">
+                <h3>Why Join Us?</h3>
+                <p>Becoming a member of the CMR AI Club offers numerous benefits, including access to exclusive resources, networking opportunities, and the chance to work on exciting AI projects. Here’s why you should consider joining:</p>
+                <ul>
+                    <li>Opportunity to participate in workshops, hackathons, and other events.</li>
+                    <li>Networking with industry experts and like-minded peers.</li>
+                    <li>Participation in cutting-edge AI projects and initiatives.</li>
+                    <li>Enhance your skills and knowledge in the field of Artificial Intelligence.</li>
+                </ul>
+            </div>
+
+            <div class="application-form">
+                <h3>Apply Now</h3>
+                <p>Ready to join the CMR AI Club? Fill out the application form below, and we’ll get back to you with further details.</p>
+                <a href="https://forms.gle/YourGoogleFormLink" target="_blank">Submit Application</a>
+            </div>
+
+            <div class="embedded-form">
+                <h3>Application Form</h3>
+                <iframe src="https://docs.google.com/forms/d/e/YourGoogleFormID/viewform?embedded=true"></iframe>
+            </div>
+        </section>
+    </div>
+
+    <footer class="footer">
+        <p>&copy; 2024 CMR AI Club. All rights reserved. | <a href="#contact">Contact Us</a></p>
+    </footer>
+
+    <script>
+        document.querySelector('.menu-button').addEventListener('click', function () {
+            document.querySelector('nav').classList.toggle('open');
+            this.classList.toggle('open');
+        });
+    </script>
+</body>
+
+</html>
